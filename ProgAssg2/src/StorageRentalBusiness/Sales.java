@@ -1,6 +1,6 @@
 package StorageRentalBusiness;
 
-public class Sales extends Customer{  //User Define Class
+public class Sales extends Customer{  //2.1 Inheritance
 	
 	private String storageName;
 	private double price;
@@ -19,20 +19,23 @@ public class Sales extends Customer{  //User Define Class
 			price = 90;
 			
 			if(day<=30) {
-				sales = totalPrice();
 				discount = 0;
+				Payment s = new SalesGetPayment(); // 2.5 interface
+				sales = s.getPayment(price, day, discount);
 			}
 			else if(day>30 && day<=70) {
 				double newPrice = 85;
 				price = newPrice;
 				discount = 0;
-				sales = totalPrice(newPrice);
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 			else {
 				double newPrice = 82;
 				price = newPrice;
 				discount = 0.1;
-				sales = totalPrice(newPrice,discount);
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 		}
 		else if(storageType == 2) {
@@ -40,21 +43,24 @@ public class Sales extends Customer{  //User Define Class
 			price = 200;
 			
 			if(day<=30) {
-				sales = totalPrice();
 				discount = 0;
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 				
 			}
 			else if(day>30 && day<=70) {
 				double newPrice = 190;
 				price = newPrice;
 				discount = 0;
-				sales = totalPrice(newPrice);
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 			else {
 				double newPrice = 180;
 				price = newPrice;
 				discount = 0.1;
-				sales = totalPrice(newPrice,discount);
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 		}
 		else {
@@ -62,47 +68,40 @@ public class Sales extends Customer{  //User Define Class
 			price = 130;
 			
 			if(day<=30) {
-				sales = totalPrice();
 				discount = 0;
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 				
 			}
 			else if(day>30 && day<=70) {
 				double newPrice = 120;
 				price = newPrice;
 				discount = 0;
-				sales = totalPrice(newPrice);
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 			else {
 				double newPrice = 110;
 				price = newPrice;
 				discount = 0.1;
-				sales = totalPrice(newPrice,discount);	
+				Payment s = new SalesGetPayment();
+				sales = s.getPayment(price, day, discount);
 			}
 		}
+		printInfo(custName);
 		
 		
 	}
 	
-	public double totalPrice() {
-		return this.price*day;
-	}
 	
-	public double totalPrice(double newPrice) {
-		return newPrice*day;
-	}
-	
-	public double totalPrice(double newPrice, double discount) {
-		return (newPrice*day)*(1-discount);
-	}
-	
-	public void printInfo() {
+	public void printInfo(String name) {  // 2.2 Polymorphism
 		System.out.println("\n-------Storage Rent-------");
-		System.out.println("Storage Type\t\t:"+storageName);
-		System.out.println("Day rent\t\t:"+day+" days");
+		System.out.println("Storage Type\t:"+storageName);
+		System.out.println("Day rent\t:"+day+" days");
 		System.out.println("Price per day\t:RM"+price);
-		System.out.println("Discount\t\t:"+(discount*100)+"%");
-		System.out.println("Total price\t\t:RM"+sales);
-		System.out.println("\nThank you. Please Come Again.");
+		System.out.println("Discount\t:"+(discount*100)+"%");
+		System.out.println("Total price\t:RM"+sales);
+		System.out.println("\nThank you Mr/Mrs " + name + ". Please Come Again.");
 	}
 
 }

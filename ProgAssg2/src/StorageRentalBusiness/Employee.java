@@ -2,7 +2,7 @@ package StorageRentalBusiness;
 
 import java.util.Scanner;
 
-public class Employee extends StorageRentalCentre{  //User Define Class
+public class Employee extends StorageRentalCentre{  //2.1 Inheritance
 
 	private String employName;
 	private int age;
@@ -14,9 +14,9 @@ public class Employee extends StorageRentalCentre{  //User Define Class
 	protected double elaun;
 	private double totalPaid;
 	
-	Scanner in = new Scanner(System.in);  //Pre-Define Class
+	Scanner in = new Scanner(System.in);  
 	
-	public Employee(String companyName,int phoneNum,String website,String employName,int age,int employPhoneNum,String position,char gender,double salary,double epf) {  //constructor with no argument
+	public Employee(String companyName,int phoneNum,String website,String employName,int age,int employPhoneNum,String position,char gender,double salary,double epf) {  
 		
 		super(companyName,phoneNum,website);
 		
@@ -46,7 +46,7 @@ public class Employee extends StorageRentalCentre{  //User Define Class
 		return (salary+elaun)*(1-epf);
 	}
 	
-	public void printInfo() {
+	public void printInfo() {  // 2.2 Polymorphism
 		System.out.println("\n----------Displaying Employee's Info For "+companyName+"----------");
 		System.out.println("Employee's name\t\t:"+this.employName);
 		System.out.println("Employee's age\t\t:"+this.age);

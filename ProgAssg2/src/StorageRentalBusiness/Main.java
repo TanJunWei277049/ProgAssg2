@@ -8,9 +8,11 @@ public class Main {
 		
 		Scanner input = new Scanner(System.in);
 		
+		int choose;
+		
 		System.out.println("Welcome To LUCKY Storage Rental Centre");
 
-		//do {
+		do {
 			System.out.println("\nChoose your option:-");
 			System.out.println("1-Admin");
 			System.out.println("2-Customer");
@@ -37,7 +39,9 @@ public class Main {
 				
 				Employee employee = new Employee("LUCKY Storage Rental Centre",32500008,"www.luckystoragerental.com",employName,age,employPhoneNum,position,gender,salary,epf);
 				employee.printInfo();
-				Finance finance = new Finance("LUCKY Storage Rental Centre",32500008,"www.luckystoragerental.com",employName,age,employPhoneNum,position,gender,salary,epf,10000,3500,200,1400);
+				Finance finance = new Finance("LUCKY Storage Rental Centre",32500008,"www.luckystoragerental.com",employName,age,employPhoneNum,position,gender,salary,epf,10000,5000);
+				finance.setMonth("June");
+				System.out.println("\n-------Financial report in "+finance.getMonth()+"-------");
 				finance.printInfo();
 			}
 			else {
@@ -55,11 +59,12 @@ public class Main {
 				storage.printInfo();
 				
 				Sales sale = new Sales("LUCKY Storage Rental Centre",32500008,"www.luckystoragerental.com",storageType);
-				sale.printInfo();
+				
 			}
+		System.out.print("\nDo you want to continue?(1-Yes  2-No)");
+		choose = input.nextInt();
 			
-			
-		//}while
+		}while(choose == 1);
 	}
 
 }

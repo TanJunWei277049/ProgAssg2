@@ -1,6 +1,6 @@
 package StorageRentalBusiness;
 
-public class StorageType extends StorageRentalCentre{  //User Define Class
+public class StorageType extends StorageRentalCentre{  //2.1 Inheritance
 	
 	private int storageType;
 	public String storageName;
@@ -30,7 +30,7 @@ public class StorageType extends StorageRentalCentre{  //User Define Class
 			
 	}
 	
-	public void printInfo() {
+	public void printInfo() {  // 2.2 Polymorphism
 		System.out.println("\n-------Storage Description For "+companyName+"-------");
 		System.out.println("Storage Type\t\t:"+storageName);
 		System.out.println("Price per day\t\t:RM"+pricePerDay);

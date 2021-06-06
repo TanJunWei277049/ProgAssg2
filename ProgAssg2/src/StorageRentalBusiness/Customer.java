@@ -2,17 +2,17 @@ package StorageRentalBusiness;
 
 import java.util.Scanner;
 
-public class Customer extends StorageType{  //User Define Class
+public class Customer extends StorageType{  //2.1 Inheritance
 	
-	private String custName;
+	protected String custName;
 	private int age;
 	private int custPhoneNum;
 	private char gender;
 	protected int day;
 	
-	Scanner in = new Scanner(System.in);  //Pre-Define Class
+	Scanner in = new Scanner(System.in);  
 	
-	public Customer(String companyName, int phoneNum, String website,int storageType) {  //constructor with no argument
+	public Customer(String companyName, int phoneNum, String website,int storageType) {  
 		
 		super(companyName,phoneNum,website,storageType);
 		
@@ -31,12 +31,12 @@ public class Customer extends StorageType{  //User Define Class
 		printInfo();
 	}
 	
-	public void printInfo() {
+	public void printInfo() {  // 2.2 Polymorphism
 		System.out.println("\n-------Customer's Details-------");
-		System.out.println("Customer's name :"+this.custName);
-		System.out.println("Customer's age :"+this.age);
-		System.out.println("Customer's phone number :"+this.custPhoneNum);
-		System.out.println("Customer's gender :"+this.gender);
+		System.out.println("Customer's name :"+custName);
+		System.out.println("Customer's age :"+age);
+		System.out.println("Customer's phone number :"+custPhoneNum);
+		System.out.println("Customer's gender :"+gender);
 	}
 
 }
